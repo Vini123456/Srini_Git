@@ -1,0 +1,62 @@
+on master machine we will install jenkins as well as java
+-------------------------------------------------------------------------------------------------
+Command for jenkins and java installation in ubuntu :-
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get openjdk-11-jdk -y
+sudo apt-get install jenkins -y
+
+you can refer this link as well :-
+
+https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+commands in ubuntu :-
+
+1)sudo nano jenkins.sh
+
+2)put the commands in the jenkins.sh file
+
+3)bash jenkins.sh   (for installing jenkins as well as java)
+
+------------------------------------------------------------------
+4)sudo service jenkins status (to check the status of jenkins is running or not)
+
+5)java --version ( to check java has been installed or not)
+
+6)to check jemkins page we will copy ---->public ip:8080
+
+7)sudo cat /var/lib/jenkins/secrets/initialAdminPassword ---> this is uded to find the password of jenkins administrator page
+
+8) after that click on install suggested plugins
+
+9)Now, go and create 1 worker machine from aws and install java in it (sudo apt-get openjdk-11-jdk -y)
+
+10)jenkins page > manage jenkins > Manage nodes and clouds > new node > node name (click permannet agent) > create
+
+11) Remote root directory> /home/ubuntu/jenkins/ > click on launch agent via ssh > host machine ( put private ip of worker machine which you have created) > click on credentials and add > Kind (ssh username and private key) > id and description (you can write anything) > usename(ubuntu) > select priavte key ( here copy the private key and paste on it)> add> hostkey verfication strategy (no verification) > save.
+
+12) we have to craete a job > restrict the job (node1) > source code management (git) > paste the link of your repository > branch specifier (*/develop) > build triggers (github hook triggers) > do the webhook settings by going into the setting of your repository > webhook > copy ip of jenkins or pubic ip of master:8080/github-webhook/ > add > at last go in jenkins page > click on apply > save.
+
+13) assignment 3
+
+job1 > configure > edit name> test
+
+job2 > configure > edit name > prod
+
+
+prod job > configure > uncheck the github hook trigger > Apply > save
+
+( now the prod job won't run automatically)
+
+test job > configure > postbuild action > build other project > prod > trigger only if the bulid is stable> apply > save.
+
+manage jenkins > manage plugins > availble > search (build pipeline ) > check the build pipeline > install without restart > go back to the page.
+
+go to the dashboard > add (+) > pipeline > build pipeline view > create > scroll down > write anythin in build pipeline view> intial job > test > apply > ok.
+
+now push any file in master and check the prod job it won't run automatically until and unless the test will successfully run.
