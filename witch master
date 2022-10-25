@@ -1,0 +1,30 @@
+[33mcommit ce03b4e0a09ae0e1d3a1c114a351be18c27d6f02[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 8da7ba1 8f3e36c
+Author: root <root@ip-172-31-24-219.ec2.internal>
+Date:   Tue Oct 25 06:10:59 2022 +0000
+
+    Merge branch 'feature-101' vii.txt file 3rd commit on master
+
+[33mcommit 8f3e36c4c586a10ea899be65da8eabf9f819e9d0[m[33m ([m[1;32mfeature-101[m[33m)[m
+Author: root <root@ip-172-31-24-219.ec2.internal>
+Date:   Tue Oct 25 06:09:07 2022 +0000
+
+    2nd commit on chil 1
+
+[33mcommit 8da7ba124eeb5ed4975a1bcb8f6d50d755e82c39[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: root <root@ip-172-31-24-219.ec2.internal>
+Date:   Tue Oct 25 06:05:07 2022 +0000
+
+    2nd commit Master
+
+[33mcommit fba7fc0698eba0d4fed714d9243f8b865a17ecf7[m[33m ([m[1;31morigin/feature-101[m[33m)[m
+Author: root <root@ip-172-31-24-219.ec2.internal>
+Date:   Tue Oct 25 05:45:36 2022 +0000
+
+    giignore added  to feature101
+
+[33mcommit 0b0bd520c45edec3b4ca6d5a318a7aea0f81a672[m
+Author: root <root@ip-172-31-24-219.ec2.internal>
+Date:   Tue Oct 25 04:22:05 2022 +0000
+
+    1 st commit
